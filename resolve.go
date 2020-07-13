@@ -363,7 +363,7 @@ func matchPackages(pattern string) []string {
 				return nil
 			}
 
-			// Avoid .foo, _foo, and testdata directory trees.
+			// Avoid  .foo, _foo, and testdata directory trees.
 			_, elem := filepath.Split(path)
 			if strings.HasPrefix(elem, ".") || strings.HasPrefix(elem, "_") || elem == "testdata" {
 				return filepath.SkipDir
