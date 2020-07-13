@@ -21,7 +21,7 @@ var (
 func flatten(arr [][]string) []string {
 	var res []string
 	for _, e := range arr {
-		res = append(res, e...)
+		res  = append(res, e...)
 	}
 	return res
 }
