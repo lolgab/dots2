@@ -33,14 +33,14 @@ func Resolve(includePatterns, skipPatterns []string) ([]string, error) {
 	skip, err := resolvePatterns(skipPatterns)
 	filter := newPathFilter(flatten(skip))
 	if err != nil {
-		return nil, err
+		return nil , err
 	}
 
 	pathSet := map[string]bool{}
 	includePackages, err := resolvePatterns(includePatterns)
 	include := flatten(includePackages)
 	if err != nil {
-		return nil, err
+		return nil , err
 	}
 
 	var result []string
@@ -50,7 +50,7 @@ func Resolve(includePatterns, skipPatterns []string) ([]string, error) {
 			result = append(result, i)
 		}
 	}
-	return result, err
+	return result , err
 }
 
 // ResolvePackages accepts a slice of paths with optional "..." placeholder and a slice with paths to be skipped.
