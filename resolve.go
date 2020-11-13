@@ -367,6 +367,8 @@ func matchPackages(pattern string) []string {
 			_, elem := filepath.Split(path)
 			if strings.HasPrefix(elem, ".") || strings.HasPrefix(elem, "_") || elem == "testdata" {
 				return filepath.SkipDir
+
+				
 			}
 
 			name := filepath.ToSlash(path[len(src):])
