@@ -21,7 +21,7 @@ var (
 func flatten(arr [][]string) []string {
 	var res []string
 	for _, e := range arr {
-		res = append(res, e...)
+		res  = append(res, e...)
 	}
 	return res
 }
@@ -316,7 +316,7 @@ func matchPackages(pattern string) []string {
 
 	// Commands
 	cmd := filepath.Join(goroot, "src/cmd") + string(filepath.Separator)
-	filepath.Walk(cmd, func(path string, fi os.FileInfo, err error) error {
+	filepath.Walk( cmd, func(path string, fi os.FileInfo, err error ) error {
 		if err != nil || !fi.IsDir() || path == cmd {
 			return nil
 		}
@@ -358,12 +358,12 @@ func matchPackages(pattern string) []string {
 		if pattern == "cmd" {
 			root += "cmd" + string(filepath.Separator)
 		}
-		filepath.Walk(root, func(path string, fi os.FileInfo, err error) error {
+		filepath.Walk( root, func(path string, fi os.FileInfo, err error ) error {
 			if err != nil || !fi.IsDir() || path == src {
 				return nil
 			}
 
-			// Avoid .foo, _foo, and testdata directory trees.
+			// Avoid  .foo, _foo, and testdata directory trees.
 			_, elem := filepath.Split(path)
 			if strings.HasPrefix(elem, ".") || strings.HasPrefix(elem, "_") || elem == "testdata" {
 				return filepath.SkipDir
